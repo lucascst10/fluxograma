@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fluxograma Animado - Engenharia de Petróleo (UDESC)</title>
+    <title>FLUXOGRAMA DE DISCIPLINAS E REQUISITOS – ENGENHARIA DE PETRÓLEO – 2025/2</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,19 +16,18 @@
             --text-color: #1e293b;
             --text-muted-color: #64748b;
             --accent-color: #006633; /* Verde UDESC */
-            --accent-highlight-color: #00994d;
             
             /* Cores para cada fase */
-            --fase1-bg: #e6f2e6; --fase1-text: #004d26;
-            --fase2-bg: #e0f2f1; --fase2-text: #004d40;
-            --fase3-bg: #e3f2fd; --fase3-text: #0d47a1;
-            --fase4-bg: #e8eaf6; --fase4-text: #1a237e;
-            --fase5-bg: #ede7f6; --fase5-text: #311b92;
-            --fase6-bg: #fce4ec; --fase6-text: #880e4f;
-            --fase7-bg: #fff3e0; --fase7-text: #e65100;
-            --fase8-bg: #fffde7; --fase8-text: #f57f17;
-            --fase9-bg: #f9fbe7; --fase9-text: #827717;
-            --fase10-bg: #e0f7fa; --fase10-text: #006064;
+            --fase1-text: #004d26;
+            --fase2-text: #004d40;
+            --fase3-text: #0d47a1;
+            --fase4-text: #1a237e;
+            --fase5-text: #311b92;
+            --fase6-text: #880e4f;
+            --fase7-text: #e65100;
+            --fase8-text: #f57f17;
+            --fase9-text: #827717;
+            --fase10-text: #006064;
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -39,7 +38,7 @@
             display: grid;
             grid-template-columns: repeat(10, minmax(150px, 1fr));
             gap: 1.5rem;
-            padding: 2rem;
+            padding: 1rem 2rem 2rem 2rem; /* Padding superior reduzido */
             overflow-x: auto;
             align-items: start;
         }
@@ -56,7 +55,6 @@
             font-size: 1rem;
             font-weight: 600;
             color: #fff;
-            background-color: var(--accent-color);
             border-radius: 0.5rem;
             padding: 0.5rem 1rem;
             text-align: center;
@@ -128,10 +126,9 @@
 </head>
 <body>
 
-    <div class="p-4 md:p-8">
-        <header class="text-center mb-8 opacity-0 animate-fadeIn" style="animation-delay: 0s;">
-            <h1 class="text-3xl md:text-4xl font-bold" style="color: var(--accent-color);">Engenharia de Petróleo</h1>
-            <p class="text-lg mt-2 font-semibold" style="color: var(--text-muted-color);">FLUXOGRAMA DE DISCIPLINAS E REQUISITOS - 2025/2</p>
+    <div class="p-4 md:p-6"> <!-- Padding geral reduzido -->
+        <header class="text-center mb-4 opacity-0 animate-fadeIn" style="animation-delay: 0s;"> <!-- Margem inferior reduzida -->
+            <h1 class="text-xl md:text-2xl font-bold" style="color: var(--accent-color);">FLUXOGRAMA DE DISCIPLINAS E REQUISITOS – ENGENHARIA DE PETRÓLEO – 2025/2</h1>
         </header>
 
         <div id="fluxograma" class="fluxograma-grid">
@@ -161,78 +158,87 @@
 
     <script>
         const disciplinas = [
-            {id:"calc1",nome:"Cálculo Diferencial e Integral I",fase:1,requisitos:[]},
-            {id:"intro_eng",nome:"Introdução à Engenharia de Petróleo",fase:1,requisitos:[]},
-            {id:"geo_analitica",nome:"Geometria Analítica",fase:1,requisitos:[]},
-            {id:"quim_geral",nome:"Química Geral",fase:1,requisitos:[]},
-            {id:"des_tecnico",nome:"Desenho Técnico",fase:1,requisitos:[]},
-            {id:"quim_exp1",nome:"Química Experimental I",fase:1,requisitos:[]},
-            {id:"ciencia_mat",nome:"Ciência dos Materiais",fase:1,requisitos:[]},
-            {id:"fis_exp1",nome:"Física Experimental I",fase:1,requisitos:[]},
-            {id:"calc2",nome:"Cálculo Diferencial e Integral II",fase:2,requisitos:["calc1"]},
-            {id:"fisica1",nome:"Física I",fase:2,requisitos:["intro_eng"]},
-            {id:"alg_linear",nome:"Álgebra Linear",fase:2,requisitos:["geo_analitica"]},
-            {id:"quim_org1",nome:"Química Orgânica I",fase:2,requisitos:["quim_geral"]},
-            {id:"est_desc",nome:"Estatística Descritiva",fase:2,requisitos:["des_tecnico"]},
-            {id:"quim_exp2",nome:"Química Experimental II",fase:2,requisitos:["quim_exp1"]},
-            {id:"fis_exp2",nome:"Física Experimental II",fase:2,requisitos:["fis_exp1"]},
-            {id:"calc3",nome:"Cálculo Diferencial e Integral III",fase:3,requisitos:["calc2"]},
-            {id:"fisica2",nome:"Física II",fase:3,requisitos:["fisica1"]},
-            {id:"geo_geral",nome:"Geologia Geral",fase:3,requisitos:["alg_linear"]},
-            {id:"quim_org2",nome:"Química Orgânica II",fase:3,requisitos:["quim_org1"]},
-            {id:"ling_prog1",nome:"Linguagem de Programação I",fase:3,requisitos:["est_desc"]},
-            {id:"estatica",nome:"Estática",fase:3,requisitos:["quim_exp2"]},
-            {id:"fis_exp3",nome:"Física Experimental III",fase:3,requisitos:["fis_exp2"]},
-            {id:"eq_dif",nome:"Equações Diferenciais",fase:4,requisitos:["calc3"]},
-            {id:"fisica3",nome:"Física III",fase:4,requisitos:["fisica2"]},
-            {id:"geo_petroleo",nome:"Geologia do Petróleo",fase:4,requisitos:["geo_geral"]},
-            {id:"intro_fq",nome:"Introdução à Físico-Química",fase:4,requisitos:["quim_org2"]},
-            {id:"met_num1",nome:"Métodos Numéricos I",fase:4,requisitos:["ling_prog1"]},
-            {id:"res_mat",nome:"Resistência dos Materiais",fase:4,requisitos:["estatica"]},
-            {id:"gestao_lid",nome:"Gestão e Liderança",fase:4,requisitos:[]},
-            {id:"mec_fluidos",nome:"Mecânica dos Fluidos",fase:5,requisitos:["eq_dif"]},
-            {id:"termo_aplic",nome:"Termodinâmica Aplicada ao Petróleo",fase:5,requisitos:["fisica3"]},
-            {id:"geofisica",nome:"Geofísica",fase:5,requisitos:["geo_petroleo"]},
-            {id:"instr_med",nome:"Instrumentação e Medidas",fase:5,requisitos:["intro_fq"]},
-            {id:"met_num2",nome:"Métodos Numéricos II",fase:5,requisitos:["met_num1"]},
-            {id:"geomecanica",nome:"Geomecânica",fase:5,requisitos:["res_mat"]},
-            {id:"fund_energ",nome:"Fundamentos de Energias Renováveis",fase:5,requisitos:["gestao_lid"]},
-            {id:"maq_fluxo",nome:"Máquinas de Fluxo",fase:6,requisitos:["mec_fluidos"]},
-            {id:"transf_calor",nome:"Transferência de Calor",fase:6,requisitos:["termo_aplic"]},
-            {id:"est_geol_campo",nome:"Estudo Geológico de Campo",fase:6,requisitos:["geofisica"]},
-            {id:"eng_reserv1",nome:"Engenharia de Reservatórios I",fase:6,requisitos:["instr_med"]},
-            {id:"escoa_multi",nome:"Escoamento Multifásico",fase:6,requisitos:["met_num2"]},
-            {id:"eng_poco1",nome:"Engenharia de Poço I",fase:6,requisitos:["geomecanica"]},
-            {id:"eng_submarina",nome:"Engenharia Submarina",fase:6,requisitos:["fund_energ"]},
-            {id:"gestao_proj",nome:"Gestão de Projetos",fase:7,requisitos:["maq_fluxo"]},
-            {id:"transf_massa",nome:"Transferência de Massa",fase:7,requisitos:["transf_calor"]},
-            {id:"sist_contr",nome:"Sistemas de Controle e Automação",fase:7,requisitos:["est_geol_campo"]},
-            {id:"eng_reserv2",nome:"Engenharia de Reservatórios II",fase:7,requisitos:["eng_reserv1"]},
-            {id:"met_elev",nome:"Métodos de Elevação",fase:7,requisitos:["escoa_multi"]},
-            {id:"eng_poco2",nome:"Engenharia de Poço II",fase:7,requisitos:["eng_poco1"]},
-            {id:"proj_int1",nome:"Projeto Integrado I",fase:7,requisitos:["eng_submarina"]},
-            {id:"econ_petroleo",nome:"Economia do Petróleo",fase:7,requisitos:[]},
-            {id:"testes_pocos",nome:"Testes de Poços",fase:8,requisitos:["gestao_proj"]},
-            {id:"proc_prim",nome:"Processamento Primário de Petróleo",fase:8,requisitos:["transf_massa"]},
-            {id:"log_int",nome:"Logística Integrada",fase:8,requisitos:["sist_contr"]},
-            {id:"sim_reserv",nome:"Simulação de Reservatórios",fase:8,requisitos:["eng_reserv2"]},
-            {id:"garantia_escoa",nome:"Garantia de Escoamento",fase:8,requisitos:["met_elev"]},
-            {id:"eng_poco3",nome:"Engenharia de Poço III",fase:8,requisitos:["eng_poco2"]},
-            {id:"proj_int2",nome:"Projeto Integrado II",fase:8,requisitos:["proj_int1"]},
-            {id:"imp_amb",nome:"Impactos Ambientais",fase:8,requisitos:["econ_petroleo"]},
-            {id:"recup_avanc",nome:"Fundamentos de Recuperação Avançada",fase:9,requisitos:["testes_pocos"]},
-            {id:"proc_oleo_gas",nome:"Processamento de Óleo e Gás",fase:9,requisitos:["proc_prim"]},
-            {id:"saude_seg",nome:"Saúde e Segurança do Trabalho",fase:9,requisitos:["log_int"]},
-            {id:"aval_proj",nome:"Avaliação de Projetos de Óleo e Gás",fase:9,requisitos:["sim_reserv"]},
-            {id:"gerenc_riscos",nome:"Gerenciamento de Riscos Ambientais",fase:9,requisitos:["garantia_escoa"]},
-            {id:"optativa1",nome:"OPTATIVA",fase:9,requisitos:[],optativa:true},
-            {id:"proj_int3",nome:"Projeto Integrado III",fase:9,requisitos:["proj_int2"]},
-            {id:"estagio",nome:"Estágio Supervisionado",fase:10,requisitos:["recup_avanc"]},
-            {id:"tcc",nome:"Projeto de Conclusão de Curso",fase:10,requisitos:["proc_oleo_gas"]},
-            {id:"optativa2",nome:"OPTATIVA",fase:10,requisitos:[],optativa:true},
-            {id:"optativa3",nome:"OPTATIVA",fase:10,requisitos:[],optativa:true},
-            {id:"optativa4",nome:"OPTATIVA",fase:10,requisitos:[],optativa:true},
-            {id:"optativa5",nome:"OPTATIVA",fase:10,requisitos:[],optativa:true}
+            // 1ª Fase
+            {id:"calc1", nome:"Cálculo Dif Int I", nomeCompleto:"Cálculo Diferencial e Integral I", fase:1, requisitos:[]},
+            {id:"intro_eng", nome:"Introdução Eng Petroleo", nomeCompleto:"Introdução à Engenharia de Petróleo", fase:1, requisitos:[]},
+            {id:"geo_analitica", nome:"Geometria Analítica", nomeCompleto:"Geometria Analítica", fase:1, requisitos:[]},
+            {id:"quim_geral", nome:"Química Geral", nomeCompleto:"Química Geral", fase:1, requisitos:[]},
+            {id:"des_tecnico", nome:"Desenho Técnico", nomeCompleto:"Desenho Técnico", fase:1, requisitos:[]},
+            {id:"quim_exp1", nome:"Química Exper I", nomeCompleto:"Química Experimental I", fase:1, requisitos:[]},
+            {id:"ciencia_mat", nome:"Ciência dos Materiais", nomeCompleto:"Ciência dos Materiais", fase:1, requisitos:[]},
+            {id:"fis_exp1", nome:"Física Exper I", nomeCompleto:"Física Experimental I", fase:1, requisitos:[]},
+            // 2ª Fase
+            {id:"calc2", nome:"Cálculo Dif Int II", nomeCompleto:"Cálculo Diferencial e Integral II", fase:2, requisitos:["calc1"]},
+            {id:"fisica1", nome:"Física I", nomeCompleto:"Física I", fase:2, requisitos:["calc1"]},
+            {id:"alg_linear", nome:"Álgebra Linear", nomeCompleto:"Álgebra Linear", fase:2, requisitos:["geo_analitica"]},
+            {id:"quim_org1", nome:"Química Orgânica I", nomeCompleto:"Química Orgânica I", fase:2, requisitos:["quim_geral"]},
+            {id:"est_desc", nome:"Estatística Descritiva", nomeCompleto:"Estatística Descritiva", fase:2, requisitos:[]},
+            {id:"quim_exp2", nome:"Química Exper II", nomeCompleto:"Química Experimental II", fase:2, requisitos:["quim_exp1"]},
+            // 3ª Fase
+            {id:"calc3", nome:"Cálculo Dif Int III", nomeCompleto:"Cálculo Diferencial e Integral III", fase:3, requisitos:["calc2"]},
+            {id:"fisica2", nome:"Física II", nomeCompleto:"Física II", fase:3, requisitos:["fisica1"]},
+            {id:"geo_geral", nome:"Geologia Geral", nomeCompleto:"Geologia Geral", fase:3, requisitos:["intro_eng"]},
+            {id:"quim_org2", nome:"Química Orgânica II", nomeCompleto:"Química Orgânica II", fase:3, requisitos:["quim_org1"]},
+            {id:"ling_prog1", nome:"Linguagem Progr. I", nomeCompleto:"Linguagem de Programação I", fase:3, requisitos:[]},
+            {id:"estatica", nome:"Estática", nomeCompleto:"Estática", fase:3, requisitos:["fisica1"]},
+            {id:"fis_exp2", nome:"Física Exper II", nomeCompleto:"Física Experimental II", fase:3, requisitos:["fis_exp1", "fisica2"]}, // Co-requisito tratado como pré-requisito
+            // 4ª Fase
+            {id:"eq_dif", nome:"Equações Diferenciais", nomeCompleto:"Equações Diferenciais", fase:4, requisitos:["calc3"]},
+            {id:"fisica3", nome:"Física III", nomeCompleto:"Física III", fase:4, requisitos:["fisica2", "calc2"]},
+            {id:"geo_petroleo", nome:"Geologia do Petróleo", nomeCompleto:"Geologia do Petróleo", fase:4, requisitos:["geo_geral"]},
+            {id:"intro_fq", nome:"Introd Físico Química", nomeCompleto:"Introdução à Físico-Química", fase:4, requisitos:["quim_geral"]},
+            {id:"met_num1", nome:"Métodos Numéricos I", nomeCompleto:"Métodos Numéricos I", fase:4, requisitos:["alg_linear", "ling_prog1", "calc2"]},
+            {id:"res_mat", nome:"Resist dos Materiais", nomeCompleto:"Resistência dos Materiais", fase:4, requisitos:["estatica"]},
+            {id:"gestao_lid", nome:"Gestão e Liderança", nomeCompleto:"Gestão e Liderança", fase:4, requisitos:[]},
+            {id:"fis_exp3", nome:"Física Exper III", nomeCompleto:"Física Experimental III", fase:4, requisitos:["fis_exp2", "fisica3"]}, // Co-requisito
+            // 5ª Fase
+            {id:"mec_fluidos", nome:"Mecânica Fluidos", nomeCompleto:"Mecânica dos Fluidos", fase:5, requisitos:["calc3", "intro_fq"]},
+            {id:"termo_aplic", nome:"Termo Aplic Petróleo", nomeCompleto:"Termodinâmica Aplicada ao Petróleo", fase:5, requisitos:["intro_fq", "met_num1"]},
+            {id:"geofisica", nome:"Geofísica", nomeCompleto:"Geofísica", fase:5, requisitos:["geo_petroleo"]},
+            {id:"instr_med", nome:"Instr Med Petróleo", nomeCompleto:"Instrumentação e Medição de Petróleo", fase:5, requisitos:[]},
+            {id:"met_num2", nome:"Métodos Numéricos II", nomeCompleto:"Métodos Numéricos II", fase:5, requisitos:["met_num1", "eq_dif"]},
+            {id:"geomecanica", nome:"Geomecânica", nomeCompleto:"Geomecânica", fase:5, requisitos:["geo_petroleo", "res_mat"]},
+            {id:"fund_energ", nome:"Fund Energias Ren", nomeCompleto:"Fundamentos em Energias Renováveis", fase:5, requisitos:[]},
+            // 6ª Fase
+            {id:"maq_fluxo", nome:"Máquinas de Fluxo", nomeCompleto:"Máquinas de Fluxo", fase:6, requisitos:["mec_fluidos"]},
+            {id:"transf_calor", nome:"Transf de Calor", nomeCompleto:"Transferência de Calor", fase:6, requisitos:["termo_aplic"]},
+            {id:"est_geol_campo", nome:"Estudo Geol. de Campo", nomeCompleto:"Estudo Geológico de Campo", fase:6, requisitos:["geo_petroleo"]},
+            {id:"eng_reserv1", nome:"Engenharia Reserv I", nomeCompleto:"Engenharia de Reservatórios I", fase:6, requisitos:["termo_aplic"]},
+            {id:"escoa_multi", nome:"Escoamento Multifásico", nomeCompleto:"Escoamento Multifásico", fase:6, requisitos:["termo_aplic", "eng_submarina"]}, // Co-requisito
+            {id:"eng_poco1", nome:"Engenharia de Poço I", nomeCompleto:"Engenharia de Poço I", fase:6, requisitos:["mec_fluidos"]},
+            {id:"eng_submarina", nome:"Engenharia Submarina", nomeCompleto:"Engenharia Submarina", fase:6, requisitos:[]},
+            // 7ª Fase
+            {id:"gestao_proj", nome:"Gestão de Projetos", nomeCompleto:"Gestão de Projetos", fase:7, requisitos:[]},
+            {id:"transf_massa", nome:"Transf de Massa", nomeCompleto:"Transferência de Massa", fase:7, requisitos:["transf_calor"]},
+            {id:"sist_contr", nome:"Sist Contr Automação", nomeCompleto:"Sistemas de Controle e Automação", fase:7, requisitos:["instr_med"]},
+            {id:"eng_reserv2", nome:"Engenharia Reserv II", nomeCompleto:"Engenharia de Reservatório II", fase:7, requisitos:["eng_reserv1"]},
+            {id:"met_elev", nome:"Métodos de Elevação", nomeCompleto:"Métodos de Elevação", fase:7, requisitos:["escoa_multi"]},
+            {id:"eng_poco2", nome:"Engenharia de Poço II", nomeCompleto:"Engenharia de Poço II", fase:7, requisitos:["eng_poco1", "geomecanica"]},
+            {id:"proj_int1", nome:"Projeto Integrado I", nomeCompleto:"Projeto Integrado I", fase:7, requisitos:["eng_poco2"]}, // Co-requisito
+            {id:"econ_petroleo", nome:"Economia Petróleo", nomeCompleto:"Economia do Petróleo", fase:7, requisitos:[]},
+            // 8ª Fase
+            {id:"testes_pocos", nome:"Testes de Poços", nomeCompleto:"Testes de Poços", fase:8, requisitos:["eng_reserv2"]},
+            {id:"proc_prim", nome:"Processam Prim Petr", nomeCompleto:"Processamento Primário de Petróleo", fase:8, requisitos:["transf_massa"]},
+            {id:"log_int", nome:"Logística Integrada", nomeCompleto:"Logística Integrada", fase:8, requisitos:[]},
+            {id:"sim_reserv", nome:"Simulação Reservatórios", nomeCompleto:"Simulação de Reservatórios", fase:8, requisitos:["eng_reserv2"]},
+            {id:"garantia_escoa", nome:"Garantia de Escoamento", nomeCompleto:"Garantia de Escoamento", fase:8, requisitos:["met_elev"]},
+            {id:"eng_poco3", nome:"Engenharia de Poço III", nomeCompleto:"Engenharia de Poço III", fase:8, requisitos:["eng_poco2"]},
+            {id:"proj_int2", nome:"Projeto Integrado II", nomeCompleto:"Projeto Integrado II", fase:8, requisitos:["proj_int1", "eng_reserv2"]},
+            {id:"imp_amb", nome:"Impactos Ambientais", nomeCompleto:"Impactos Ambientais da Indústria de Óleo e Gás", fase:8, requisitos:[]},
+            // 9ª Fase
+            {id:"recup_avanc", nome:"Fund Recup Avançada", nomeCompleto:"Fundamentos em Recuperação Avançada", fase:9, requisitos:["testes_pocos"]},
+            {id:"proc_oleo_gas", nome:"Process Oleo e Gás", nomeCompleto:"Processamento de Óleo e Gás", fase:9, requisitos:["proc_prim"]},
+            {id:"saude_seg", nome:"Saúde Seg Trabalho", nomeCompleto:"Saúde e Segurança no Trabalho", fase:9, requisitos:[]},
+            {id:"aval_proj", nome:"Aval Proj Oleo e Gás", nomeCompleto:"Avaliação de Projetos de Óleo e Gás", fase:9, requisitos:["econ_petroleo"]},
+            {id:"gerenc_riscos", nome:"Gerenc Riscos Amb", nomeCompleto:"Gerenciamento de Riscos Ambientais", fase:9, requisitos:[]},
+            {id:"proj_int3", nome:"Projeto Integrado III", nomeCompleto:"Projeto Integrado III", fase:9, requisitos:["proj_int2"]},
+            // 10ª Fase
+            {id:"estagio", nome:"Estágio Superv", nomeCompleto:"Estágio Curricular Supervisionado", fase:10, requisitos:[]}, // 70% da grade
+            {id:"tcc", nome:"Proj Concl Curso", nomeCompleto:"Projeto de Conclusão de Curso", fase:10, requisitos:["eng_poco3", "eng_reserv2"]}, // 80% da grade
+            {id:"optativa1", nome:"OPTATIVA", nomeCompleto:"Optativa", fase:9, requisitos:[], optativa:true},
+            {id:"optativa2", nome:"OPTATIVA", nomeCompleto:"Optativa", fase:10, requisitos:[], optativa:true},
+            {id:"optativa3", nome:"OPTATIVA", nomeCompleto:"Optativa", fase:10, requisitos:[], optativa:true},
+            {id:"optativa4", nome:"OPTATIVA", nomeCompleto:"Optativa", fase:10, requisitos:[], optativa:true}
         ];
 
         const fluxogramaGrid = document.getElementById('fluxograma');
@@ -274,11 +280,11 @@
         function openModal(disciplinaId) {
             const disciplina = disciplinas.find(d => d.id === disciplinaId);
             if (!disciplina || disciplina.optativa) return;
-            modalTitle.textContent = disciplina.nome;
-            const prereqs = disciplina.requisitos.map(id => disciplinas.find(d => d.id === id)?.nome).filter(Boolean);
-            modalPrerequisitos.textContent = prereqs.length > 0 ? prereqs.join(', ') : 'Nenhum';
-            const deps = disciplinas.filter(d => d.requisitos.includes(disciplina.id)).map(d => d.nome);
-            modalDependencias.textContent = deps.length > 0 ? deps.join(', ') : 'Nenhuma';
+            modalTitle.textContent = disciplina.nomeCompleto;
+            const prereqs = disciplina.requisitos.map(id => disciplinas.find(d => d.id === id)?.nomeCompleto).filter(Boolean);
+            modalPrerequisitos.textContent = prereqs.length > 0 ? prereqs.join('; ') : 'Nenhum';
+            const deps = disciplinas.filter(d => d.requisitos.includes(disciplina.id)).map(d => d.nomeCompleto);
+            modalDependencias.textContent = deps.length > 0 ? deps.join('; ') : 'Nenhuma';
             modal.classList.add('visible');
         }
         function closeModal() {
@@ -295,7 +301,6 @@
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
-        
     </script>
 </body>
 </html>
